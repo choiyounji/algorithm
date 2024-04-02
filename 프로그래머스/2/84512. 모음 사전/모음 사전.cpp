@@ -4,11 +4,10 @@
 using namespace std;
 
 string target="";
-int cnt=-1,answer=0;
+int cnt=0,answer=0;
 string aeiou="AEIOU";
 
 void dfs(string s){
-    cnt++;
     if(s==target){
         answer=cnt;
         return;
@@ -17,6 +16,7 @@ void dfs(string s){
         return;
     }
     for(int i=0;i<5;i++){
+        cnt++;
         dfs(s+aeiou[i]);
     }
 }
