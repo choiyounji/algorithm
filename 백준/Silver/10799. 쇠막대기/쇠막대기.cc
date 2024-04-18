@@ -1,29 +1,34 @@
 #include<iostream>
-#include<stack>
+
 using namespace std;
-int solution(const string &str){
-    stack<char> st;
-    int answer=0;
-    for(int i=0;i<str.length();i++){
-        if(str[i]=='('){
-            st.push('(');
-        }
-        else{
-            st.pop();
-            if(str[i-1]=='('){
-                answer+=st.size();
-            }
-            else{
-                answer+=1;
-            }
-        }
-    }
-    return answer;
-}
-int main(){
-    string str;
-    cin>>str;
-    int answer=solution(str);
-    cout<<answer;
-    return 0;
+
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+	string s;
+	cin >> s;
+
+	int ans = 0;
+	int cnt = 0;
+	bool check = false;
+	for (int i = 0; i < s.length(); i++) {
+		if (s[i] == '(') {
+			cnt++;
+			check = true;
+		}
+		else {
+			if (check) {
+				cnt--;
+				ans += cnt;
+				check = false;
+			}
+			else {
+				ans++;
+				cnt--;
+				check = false;
+			}
+		}
+
+	}
+	cout << ans;
+	return 0;
 }
