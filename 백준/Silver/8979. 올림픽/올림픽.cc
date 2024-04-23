@@ -33,13 +33,15 @@ int main() {
 		v[q - 1].b = r;
 	}
 	sort(v.begin(), v.end(), cmp);
-
+	//for (int i = 0; i < n; i++) {
+		//cout << v[i].num;
+	//}
 	for (int i = n - 1; i >= 0; i--) {
-		if (i == k - 1) {
+		if (v[i].num == k) {
 			int cg, cb, cs;
-			cg = v[i].g;
-			cs = v[i].s;
-			cb = v[i].b;
+			cg = v[v[i].num].g;
+			cs = v[v[i].num].s;
+			cb = v[v[i].num].b;
 			int cnt = 0;
 			for (int j = i-1; j >= 0; j--) {
 				if (cg == v[j].g && cs == v[j].s && cb == v[j].b) {
