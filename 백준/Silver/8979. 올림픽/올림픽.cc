@@ -39,9 +39,9 @@ int main() {
 	for (int i = n - 1; i >= 0; i--) {
 		if (v[i].num == k) {
 			int cg, cb, cs;
-			cg = v[v[i].num].g;
-			cs = v[v[i].num].s;
-			cb = v[v[i].num].b;
+			cg = v[i].g;
+			cs = v[i].s;
+			cb = v[i].b;
 			int cnt = 0;
 			for (int j = i-1; j >= 0; j--) {
 				if (cg == v[j].g && cs == v[j].s && cb == v[j].b) {
